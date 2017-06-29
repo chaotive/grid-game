@@ -19,18 +19,28 @@ System.config({
                     "loader": "ts"
                 }
             }
+        },
+        "grid-game": {
+            "defaultExtension": "ts",
+            "main": "App.ts",
+            "meta": {
+                "*.ts": {
+                    "loader": "ts"
+                }
+            }
         }
     },
     map: {
         "ts": "../../../lib/dev/ts",
         "typescript": "../../../lib/dev/ts",
-        "some-game": '../../main/ts/SOME-GAME'
+        "some-game": '../../main/ts/SOME-GAME',
+        "grid-game": '../../main/ts/GG'
     },
     transpiler: "ts"
 });
 
 window.start = function() {
-    System.import('some-game').then( function(sg) {
+    System.import('grid-game').then( function(sg) {
         window.app = new sg.App("dev");
     });
 };
