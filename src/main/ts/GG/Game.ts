@@ -1,6 +1,6 @@
 import {Menu} from "./STATES/Menu"
 import {GameOver} from "./STATES/GameOver";
-import {Grid} from "./STATES/Grid";
+import {Stage} from "./STATES/Stage";
 
 export class Game extends Phaser.Game {
     app: CHAOTIVE.FW.APP.App;
@@ -12,9 +12,9 @@ export class Game extends Phaser.Game {
 
         this.state.add('Menu', Menu, false);
         this.state.add('GameOver', GameOver, false);
-        this.state.add('Grid', Grid, false);
+        this.state.add('Stage', Stage, false);
 
-        this.state.start('Grid');
+        this.state.start('Stage');
 
         console.log("Grid game started...");
     }
