@@ -1,4 +1,5 @@
 describe 'Grid', ->
 
   it 'builds', ->
-    Grid = require '../../main/ts/GG/map/Grid.ts'
+
+    grid = new GG.map.Grid(2,3,3)
