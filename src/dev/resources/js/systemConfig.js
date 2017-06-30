@@ -20,7 +20,7 @@ System.config({
                 }
             }
         },
-        "grid-game": {
+        "GG": {
             "defaultExtension": "ts",
             "main": "App.ts",
             "meta": {
@@ -34,7 +34,7 @@ System.config({
         "ts": "../../../lib/dev/ts",
         "typescript": "../../../lib/dev/ts",
         "some-game": '../../main/ts/SOME-GAME',
-        "grid-game": '../../main/ts/GG'
+        "GG": '../../main/ts/GG'
     },
     transpiler: "ts"
 });

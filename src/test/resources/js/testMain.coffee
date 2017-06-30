@@ -3,10 +3,15 @@ window.start = () ->
     map: {}
     GAME: {}
 
-  Promise.all(['grid-game/map/Grid', 'grid-game/GAME/Util'].map( (url) ->
+  Promise.all([
+    'GG/map/Grid'
+    'GG/map/Cell'
+    'GG/GAME/Util'
+  ].map( (url) ->
     System['import'](url)
   )).then (modules) ->
     window.GG["map"]["Grid"] = modules[0]["Grid"]
-    window.GG["GAME"]["Util"] = modules[1]["Util"]
+    window.GG["map"]["Cell"] = modules[1]["Cell"]
+    window.GG["GAME"]["Util"] = modules[2]["Util"]
 
     runner = mocha.run()

@@ -1,5 +1,5 @@
 window.start = function() {
-    System.import('grid-game').then( function(sg) {
-        window.app = new sg.App("dev");
+    System.import('GG').then( function(imports) {
+        window.app = new imports.App("dev");
     });
 };
