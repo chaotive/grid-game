@@ -8,6 +8,8 @@ describe 'Cell', ->
     expect(cell.position.x).to.equal 0
     expect(cell.position.y).to.equal 0
     expect(cell.index).to.equal 0
+    expect(cell.center.x).to.equal 0
+    expect(cell.center.y).to.equal 0
 
   it 'builds on size different than 0', ->
     cell = new GG.map.Cell({width:3, height:3}, 1, 3, 1)
@@ -17,6 +19,8 @@ describe 'Cell', ->
     expect(cell.position.x).to.equal 3
     expect(cell.position.y).to.equal 9
     expect(cell.index).to.equal 1
+    expect(cell.center.x).to.equal 4.5
+    expect(cell.center.y).to.equal 10.5
 
   it 'builds on bigger size', ->
     cell = new GG.map.Cell({width:8, height:8}, 155, 228, 2)
@@ -26,6 +30,8 @@ describe 'Cell', ->
     expect(cell.position.x).to.equal 1240
     expect(cell.position.y).to.equal 1824
     expect(cell.index).to.equal 2
+    expect(cell.center.x).to.equal 1244
+    expect(cell.center.y).to.equal 1828
 
   it 'builds on non square cell', ->
     cell = new GG.map.Cell({width:5/3, height:13/3}, 155, 228, 3)
@@ -35,3 +41,5 @@ describe 'Cell', ->
     expect(cell.position.x).to.be.closeTo 258.33, 0.01
     expect(cell.position.y).to.be.closeTo 987.99, 0.01
     expect(cell.index).to.equal 3
+    expect(cell.center.x).to.be.closeTo 259.16, 0.01
+    expect(cell.center.y).to.be.closeTo 990.16, 0.01
