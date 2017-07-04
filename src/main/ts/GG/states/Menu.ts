@@ -1,10 +1,10 @@
-import {Util} from "../GAME/Util";
+import {Preload} from "../game/Preload";
 
 export class Menu extends Phaser.State {
     startButton: Phaser.Sprite;
 
     preload() {
-        Util.preload(this.game);
+        Preload.images(this.game);
     }
 
     create() {

@@ -1,6 +1,6 @@
-import {Menu} from "./STATES/Menu"
-import {GameOver} from "./STATES/GameOver";
-import {Stage} from "./STATES/Stage";
+import {Menu} from "./states/Menu"
+import {GameOver} from "./states/GameOver";
+import {Stage} from "./states/Stage";
 
 export class Game extends Phaser.Game {
     app: CHAOTIVE.FW.APP.App;
