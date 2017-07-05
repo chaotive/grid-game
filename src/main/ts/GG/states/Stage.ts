@@ -16,8 +16,14 @@ export class Stage extends Phaser.State {
     }
 
     create() {
-        this.grid = new Grid(new Size(640, 360), Utils.getRandomInt(2, 320), Utils.getRandomInt(2, 180));
-        this.colors = ['Purple', 'Red', 'Yellow', 'Blue', 'LightBlue', 'White'];
+        let width = 640;
+        let height = 360;
+        let factor = 0.826;
+        let columns = Utils.getRandomInt(2, 32);//2; //16; //Utils.getRandomInt(2, 320)
+        let rows = parseInt(columns * factor); //8; //Utils.getRandomInt(2, 180)
+
+        this.grid = new Grid(new Size(width, height), columns, rows);
+        this.colors = ['Amazon', 'Child', 'Girl', 'Indian', 'Knight', 'Mage', 'Toad'];
         this.currentColumn = 0;
 
         this.cells = [];
@@ -35,12 +41,22 @@ export class Stage extends Phaser.State {
             c.cell.grid.x == this.currentColumn
         );
 
-        columnCells.map(c =>
-            c.tint = Math.random() * 0xffffff
-        );
+        columnCells.map(c => this.cellUpdate(c));
 
         this.currentColumn++;
     }
 
+    cellUpdate(cellSprite) {
+        //this.tintSprite(cellSprite);
+        this.toggleSprite(cellSprite);
+    }
+
+    tintSprite(sprite) {
+        sprite.tint = Math.random() * 0xffffff
+    }
+
+    toggleSprite(sprite) {
+        sprite.visible = Utils.getRandomInt(0, 1);
+    }
 }
 
