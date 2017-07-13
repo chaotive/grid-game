@@ -44,3 +44,23 @@ describe 'Grid', ->
     expect(grid.cellsByIndex[4].position.y).to.be.closeTo 1.33, 0.01
     expect(grid.cellsByIndex[5].position.x).to.equal 3.5
     expect(grid.cellsByIndex[5].position.y).to.be.closeTo 2.66, 0.01
+
+  it 'generates cells of correct size and in correct position, with inverted Y axis', ->
+    grid = new GG.map.Grid({width: 7, height: 4}, 2, 3, true)
+    console.log "grid", grid
+    expect(grid.cells[0][0].size.width).to.equal 3.5
+    expect(grid.cells[0][0].size.height).to.be.closeTo 1.33, 0.01
+
+    expect(grid.cells[1][2].position.x).to.equal 0
+    expect(grid.cells[1][2].position.y).to.equal 0
+    expect(grid.cells[1][1].position.x).to.equal 0
+    expect(grid.cells[1][1].position.y).to.be.closeTo 1.33, 0.01
+    expect(grid.cells[1][0].position.x).to.equal 0
+    expect(grid.cells[1][0].position.y).to.be.closeTo 2.66, 0.01
+
+    expect(grid.cells[0][2].position.x).to.equal 3.5
+    expect(grid.cells[0][2].position.y).to.equal 0
+    expect(grid.cells[0][1].position.x).to.equal 3.5
+    expect(grid.cells[0][1].position.y).to.be.closeTo 1.33, 0.01
+    expect(grid.cells[0][0].position.x).to.equal 3.5
+    expect(grid.cells[0][0].position.y).to.be.closeTo 2.66, 0.01

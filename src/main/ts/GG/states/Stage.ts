@@ -36,7 +36,7 @@ export class Stage extends Phaser.State {
             this.add.existing(cell);
         }
 
-        this.player = new CellSprite(this.game, this.grid.cellsByIndex[0], 'spr1');
+        this.player = new CellSprite(this.game, this.grid.cells[0][0], 'spr1');
         this.add.existing(this.player);
     }
 
@@ -54,7 +54,7 @@ export class Stage extends Phaser.State {
 
     cellUpdate(cellSprite) {
         //this.tintSprite(cellSprite);
-        this.toggleSprite(cellSprite);
+        //this.toggleSprite(cellSprite);
     }
 
     tintSprite(sprite) {

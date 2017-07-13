@@ -10,10 +10,13 @@ export class Grid {
     cells: Cell[][];
     cellsByIndex: Cell[];
 
-    constructor(size, columns, rows) {
+    invertY: boolean;
+
+    constructor(size, columns, rows, invertY = false) {
         this.size = size;
         this.columns = columns;
         this.rows = rows;
+        this.invertY = invertY;
 
         this.cellsSize = new Size(size.width / columns, size.height / rows);
         this.cells = [];
@@ -21,12 +24,17 @@ export class Grid {
         this.cellsByIndex = [];
         for (let x = 0; x < columns; x++) {
             this.cells[x] = [];
+            //for (let y = this.initial(); this.isLimit(y); y = this.next(y)) {
             for (let y = 0; y < rows; y++) {
-                this.cells[x][y] = new Cell(this.cellsSize, x, y, index);
+                this.cells[x][y] = new Cell(this.cellsSize, x, this.getYPosition(y), index);
                 this.cellsByIndex[index] = this.cells[x][y];
                 index++;
             }
         }
     }
 
+    private getYPosition(i) : number {
+        if(this.invertY == true) return this.rows - i;
+        else return i;
+    }
 }
