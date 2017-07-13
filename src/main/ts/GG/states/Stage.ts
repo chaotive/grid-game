@@ -9,6 +9,8 @@ export class Stage extends Phaser.State {
     grid: Grid;
     colors: string[];
 
+    player: CellSprite;
+
     private currentColumn: number;
 
     preload() {
@@ -28,10 +30,14 @@ export class Stage extends Phaser.State {
 
         this.cells = [];
         for(let i = 0; i < this.grid.cellsByIndex.length; i++) {
-            let cell = new CellSprite(this.game, this.grid.cellsByIndex[i], this.colors);
+            let colorIndex = Utils.getRandomInt(0, this.colors.length - 1);
+            let cell = new CellSprite(this.game, this.grid.cellsByIndex[i], 'cell' + this.colors[colorIndex]);
             this.cells.push(cell);
             this.add.existing(cell);
         }
+
+        this.player = new CellSprite(this.game, this.grid.cellsByIndex[0], 'spr1');
+        this.add.existing(this.player);
     }
 
     update() {
