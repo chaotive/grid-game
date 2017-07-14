@@ -24,7 +24,7 @@ export class Stage extends Phaser.State {
         let columns = Utils.getRandomInt(2, 32);//2; //16; //Utils.getRandomInt(2, 320)
         let rows = parseInt(columns * factor); //8; //Utils.getRandomInt(2, 180)
 
-        this.grid = new Grid(new Size(width, height), columns, rows);
+        this.grid = new Grid(new Size(width, height), columns, rows, true);
         this.colors = ['Amazon', 'Child', 'Girl', 'Indian', 'Knight', 'Mage', 'Toad'];
         this.currentColumn = 0;
 
