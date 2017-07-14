@@ -3,6 +3,7 @@ import {Size} from "../utils/Size";
 import {Preload} from "../game/Preload";
 import {CellSprite} from "../sprites/CellSprite";
 import {Utils} from "../utils/Utils";
+import Sprite = Phaser.Sprite;
 
 export class Stage extends Phaser.State {
     cells: CellSprite[];
@@ -10,6 +11,7 @@ export class Stage extends Phaser.State {
     colors: string[];
 
     player: CellSprite;
+    button: Sprite;
 
     private currentColumn: number;
 
@@ -38,6 +40,16 @@ export class Stage extends Phaser.State {
 
         this.player = new CellSprite(this.game, this.grid.cells[0][0], 'spr1');
         this.add.existing(this.player);
+
+        this.button = this.game.add.sprite(230, 90, 'startbutton');
+        this.button.inputEnabled = true;
+        this.button.events.onInputDown.add(this.action_playerMove,this);
+    }
+
+    action_playerMove() {
+        let x = Utils.getRandomInt(0, this.grid.columns - 1);
+        let y = Utils.getRandomInt(0, this.grid.rows - 1);
+        this.player.move(this.grid.cells[x][y]);
     }
 
     update() {
