@@ -51,16 +51,17 @@ describe 'Grid', ->
     expect(grid.cells[0][0].size.width).to.equal 3.5
     expect(grid.cells[0][0].size.height).to.be.closeTo 1.33, 0.01
 
-    expect(grid.cells[1][2].position.x).to.equal 0
+    expect(grid.cells[0][2].position.x).to.equal 0
+    expect(grid.cells[0][2].position.y).to.equal 0
+    expect(grid.cells[0][1].position.x).to.equal 0
+    expect(grid.cells[0][1].position.y).to.be.closeTo 1.33, 0.01
+    expect(grid.cells[0][0].position.x).to.equal 0
+    expect(grid.cells[0][0].position.y).to.be.closeTo 2.66, 0.01
+
+    expect(grid.cells[1][2].position.x).to.equal 3.5
     expect(grid.cells[1][2].position.y).to.equal 0
-    expect(grid.cells[1][1].position.x).to.equal 0
+    expect(grid.cells[1][1].position.x).to.equal 3.5
     expect(grid.cells[1][1].position.y).to.be.closeTo 1.33, 0.01
-    expect(grid.cells[1][0].position.x).to.equal 0
+    expect(grid.cells[1][0].position.x).to.equal 3.5
     expect(grid.cells[1][0].position.y).to.be.closeTo 2.66, 0.01
 
-    expect(grid.cells[0][2].position.x).to.equal 3.5
-    expect(grid.cells[0][2].position.y).to.equal 0
-    expect(grid.cells[0][1].position.x).to.equal 3.5
-    expect(grid.cells[0][1].position.y).to.be.closeTo 1.33, 0.01
-    expect(grid.cells[0][0].position.x).to.equal 3.5
-    expect(grid.cells[0][0].position.y).to.be.closeTo 2.66, 0.01

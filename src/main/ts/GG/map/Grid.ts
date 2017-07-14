@@ -34,7 +34,8 @@ export class Grid {
     }
 
     private getYPosition(i) : number {
-        if(this.invertY == true) return this.rows - i;
+        console.log("y", this.rows - i - 1);
+        if(this.invertY == true) return this.rows - i - 1;
         else return i;
     }
 }
