@@ -6,7 +6,7 @@ export class Game extends Phaser.Game {
     app: CHAOTIVE.FW.APP.App;
 
     constructor(app) {
-        super(640, 360, Phaser.AUTO, "game");
+        super(854, 480, Phaser.AUTO, "game");
 
         this.app = app;
 
