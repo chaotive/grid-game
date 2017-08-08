@@ -8,8 +8,6 @@ export class Arrows {
     grid: Grid;
     player: CellSprite;
 
-    button: Sprite;
-
     left: Sprite;
     right: Sprite;
     up: Sprite;
@@ -20,21 +18,28 @@ export class Arrows {
         this.grid = grid;
         this.player = player;
 
-        this.button = this.stage.game.add.sprite(230, 90, 'startbutton');
-        this.button.inputEnabled = true;
-        this.button.events.onInputDown.add(this.action_playerMove,this);
+        this.left = this.createButton("Left", 120, 370);
+        this.right = this.createButton("Right", 220, 370);
+        this.up = this.createButton("Up", 320, 370);
+        this.down = this.createButton("Down", 420, 370);
     }
 
-    action_playerMove() {
-        let x = Utils.getRandomInt(0, this.grid.columns - 1);
-        let y = Utils.getRandomInt(0, this.grid.rows - 1);
-        this.player.move(this.grid.cells[x][y]);
+    createButton(direction: string, x: number, y: number): Sprite {
+        let button = this.stage.game.add.sprite(x, y, 'directionalArrows' + direction);
+        button.inputEnabled = true;
+        button.events.onInputDown.add(this.action_playerMove, this, undefined, direction);
+        return button;
     }
 
-    // action_playerMoveLeft() {
-    //     let x = Utils.getRandomInt(0, this.grid.columns - 1);
-    //     let y = Utils.getRandomInt(0, this.grid.rows - 1);
-    //     this.player.move(this.grid.cells[x][y]);
-    // }
+    action_playerMove(obj1, obj2, direction: string) {
+        let x = this.player.cell.grid.x;
+        let y = this.player.cell.grid.y;
+        switch (direction) {
+            case "Left":    if (x > 0) this.player.move(this.grid.cells[x-1][y]); break;
+            case "Right":   if (x < this.grid.columns - 1) this.player.move(this.grid.cells[x+1][y]); break;
+            case "Up":      if (y < this.grid.rows - 1) this.player.move(this.grid.cells[x][y+1]); break;
+            case "Down":    if (y > 0) this.player.move(this.grid.cells[x][y-1]); break;
+        }
+    }
 
 }

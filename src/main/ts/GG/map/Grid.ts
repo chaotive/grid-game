@@ -24,9 +24,8 @@ export class Grid {
         this.cellsByIndex = [];
         for (let x = 0; x < columns; x++) {
             this.cells[x] = [];
-            //for (let y = this.initial(); this.isLimit(y); y = this.next(y)) {
             for (let y = 0; y < rows; y++) {
-                this.cells[x][y] = new Cell(this.cellsSize, x, this.getYPosition(y), index);
+                this.cells[x][y] = new Cell(this.cellsSize, x, this.getYPosition(y), index, y);
                 this.cellsByIndex[index] = this.cells[x][y];
                 index++;
             }

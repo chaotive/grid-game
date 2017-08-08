@@ -25,11 +25,15 @@ export class Preload {
             'cellIndian': 'img/grid-game/smallCharacters/indian.png',
             'cellKnight': 'img/grid-game/smallCharacters/knight.png',
             'cellMage': 'img/grid-game/smallCharacters/mage.png',
-            'cellToad': 'img/grid-game/smallCharacters/toad.png'
+            'cellToad': 'img/grid-game/smallCharacters/toad.png',
+
+            'directionalArrowsLeft': 'grid-game/sprites/directionalArrows/left.png',
+            'directionalArrowsRight': 'grid-game/sprites/directionalArrows/right.png',
+            'directionalArrowsUp': 'grid-game/sprites/directionalArrows/up.png',
+            'directionalArrowsDown': 'grid-game/sprites/directionalArrows/down.png'
         };
 
         for (let k in images) game.load.image(k, game.app.urlPrefix + images[k])
     }
 
 }
-

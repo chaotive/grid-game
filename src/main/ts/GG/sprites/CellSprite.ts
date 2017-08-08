@@ -19,13 +19,13 @@ export class CellSprite extends Phaser.Sprite {
     move (newCell: Cell) {
         if (!this.blocked) {
             this.blocked = true;
-            this.cell = newCell;
             console.log(this.blocked);
 
             let tween = this.game.add.tween(this).to({
                 x: newCell.position.x, y: newCell.position.y
-            }, 1000);
+            }, 100);
             tween.onComplete.add(() => {
+                this.cell = newCell;
                 this.blocked = false;
                 console.log(this.blocked);
             });

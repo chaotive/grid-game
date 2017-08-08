@@ -8,8 +8,8 @@ export class Cell {
     index: number;
     center: Position2d;
 
-    constructor(size, gridX, gridY, index) {
-        this.grid = new Position2d(gridX, gridY);
+    constructor(size, gridX, gridY, index, correctedGridY = gridY) {
+        this.grid = new Position2d(gridX, correctedGridY);
         this.size = size;
         this.position = new Position2d(gridX * size.width, gridY * size.height);
         this.index = index;
